@@ -1,0 +1,15 @@
+# Experiment inputs and private review artifacts stay local.
+private/
+data_sources/
+results/
+researcher_input/
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+.env
+.env.*
+*.sqlite*
+*.log
+*.pem
+*.key

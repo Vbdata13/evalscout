@@ -1,0 +1,89 @@
+{
+  "source_repository": "https://github.com/sierra-research/tau-bench",
+  "source_file": "historical_trajectories/gpt-4o-retail.json",
+  "source_sha256": "df01707894836168ff0ec9616b0bf08f66c7e5afcf313e5fe4f7a2f5c2ec938b",
+  "commit": "59a200c6d575d595120f1cb70fea53cef0632f6b",
+  "model": "gpt-4o",
+  "domain": "Retail",
+  "seed": 20261115,
+  "message_indexing": "1-based after removing shared system policy",
+  "selection": "Five source passes and five source failures per split, distinct unused tasks, preferring new observed tool profiles and coverage within each split.",
+  "traces": [
+    {
+      "trace_id": "HR-D01",
+      "split": "Development",
+      "source_row": 204,
+      "task_id": 89,
+      "trial": 1
+    },
+    {
+      "trace_id": "HR-D02",
+      "split": "Development",
+      "source_row": 160,
+      "task_id": 45,
+      "trial": 1
+    },
+    {
+      "trace_id": "HR-D03",
+      "split": "Development",
+      "source_row": 280,
+      "task_id": 50,
+      "trial": 2
+    },
+    {
+      "trace_id": "HR-D04",
+      "split": "Development",
+      "source_row": 432,
+      "task_id": 87,
+      "trial": 3
+    },
+    {
+      "trace_id": "HR-D05",
+      "split": "Development",
+      "source_row": 320,
+      "task_id": 90,
+      "trial": 2
+    },
+    {
+      "trace_id": "HR-D06",
+      "split": "Development",
+      "source_row": 28,
+      "task_id": 28,
+      "trial": 0
+    },
+    {
+      "trace_id": "HR-D07",
+      "split": "Development",
+      "source_row": 332,
+      "task_id": 102,
+      "trial": 2
+    },
+    {
+      "trace_id": "HR-D08",
+      "split": "Development",
+      "source_row": 444,
+      "task_id": 99,
+      "trial": 3
+    },
+    {
+      "trace_id": "HR-D09",
+      "split": "Development",
+      "source_row": 276,
+      "task_id": 46,
+      "trial": 2
+    },
+    {
+      "trace_id": "HR-D10",
+      "split": "Development",
+      "source_row": 20,
+      "task_id": 20,
+      "trial": 0
+    }
+  ],
+  "files": {
+    "CONTRACT.md": "5fad8ce369e1bca60e73062915593da6fe80efad15570a1195ef434332999af0",
+    "traces.jsonl": "e79c2e60eacd715b014aaf55887c8dca5438efbee2c53b32a0d8f6851fab7ed0",
+    "retail_policy.md": "d539fd2a46a8b8dd2e934ff9ed92f43e9f6b56bc7a718db8d2803ba8ad8f6bf7",
+    "TASK.md": "10db72157a2c11e9ace4e7e2d5dbac9b067f25ec11edc42172fb447a11499639"
+  }
+}
