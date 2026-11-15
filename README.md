@@ -29,6 +29,11 @@ work on new traces.
 | --- | --- | ---: | --- |
 | GPT-6.1 Sol (Codex) | `evalscout-harbor/retail@v2` | 38.1/100 | `69eb9c6b-88c9-4e42-b250-1a197a15a794` |
 
+Replaying the submitted files with the same verifier reproduced the score.
+Sol matched 3 of 9 verified development issues. Its evaluator ran successfully
+and detected 0 of 5 verified unseen failures. The unseen count refers to labeled
+failures across the ten test traces. Global precision is unmeasured.
+
 In the hackathon organization, run `valkyrie tui` to browse hosted runs or
 `valkyrie run fetch 69eb9c6b-88c9-4e42-b250-1a197a15a794` for this result.
 
