@@ -17,14 +17,17 @@
 ## Live run
 
 - [ ] Complete and verify a real Valkyrie run with private evaluation.
-      Codex run `3783d623-4e29-468c-996c-916bb900e162` was accepted and is in
-      progress. There is no final score yet.
+      Stock Codex run `3783d623-4e29-468c-996c-916bb900e162` failed during
+      harness installation. The selected CPython 3.15 did not have a usable
+      tiktoken wheel and the sandbox lacked Rust.
+      Python 3.12 retry `2292b89e-f0a0-4ae7-8e76-a9441aefb7fb` is in progress.
+      No final score is verified yet.
 - [ ] Save run result, error record, trace and outputs under the private
       run directory. Publish only non-sensitive execution metadata.
 
 ## Submission
 
-- [ ] Push and verify the clean GitHub repository.
+- [x] Pushed and verified the clean private GitHub repository.
 - [ ] Author writes the personal paragraph at the top of the README.
 - [ ] Author selects submission visibility and submits the link in the
       hackathon portal. The initial GitHub repository is private.

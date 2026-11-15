@@ -58,6 +58,10 @@ valkyrie run start --benchmark evalscout --dataset default \
 ```
 
 Use a second terminal for the run and keep the service and tunnel running.
+If the stock Codex harness selects Python 3.15 and fails to install tiktoken,
+run `python3 scripts/prepare_codex_harness.py` from the repository root and
+repeat with `--agent codex-evalscout-py312`. This copies the existing harness
+and pins its dependency installation to Python 3.12.
 Use `valkyrie run results`, `valkyrie run errors`, and
 `valkyrie run outputs` to save the results locally.
 
