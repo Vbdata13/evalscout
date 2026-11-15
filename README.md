@@ -23,6 +23,15 @@ work on new traces.
 ![Local discovery coverage](benchmark/figures/discovery.png)
 ![Local unseen-test results](benchmark/figures/unseen.png)
 
+## Hosted Valkyrie result
+
+| Model | Dataset | Score | Valkyrie run ID |
+| --- | --- | ---: | --- |
+| GPT-6.1 Sol (Codex) | `evalscout-harbor/retail@v2` | 38.1/100 | `69eb9c6b-88c9-4e42-b250-1a197a15a794` |
+
+In the hackathon organization, run `valkyrie tui` to browse hosted runs or
+`valkyrie run fetch 69eb9c6b-88c9-4e42-b250-1a197a15a794` for this result.
+
 ## Run the versioned Harbor dataset
 
 The hackathon path uses the hosted, versioned Harbor dataset

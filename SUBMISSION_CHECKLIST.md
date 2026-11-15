@@ -25,10 +25,12 @@
 - [x] Relaxed the validator to accept any unique, in-range positions and
       verified the Harbor verifier locally in a network-disabled Linux container.
 - [x] Published the official-format Harbor dataset, `evalscout-harbor/retail@v2`.
-- [ ] Record the native results when complete. Codex v2
-      `69eb9c6b-88c9-4e42-b250-1a197a15a794` and Claude v1
-      `ab8590b6-59e6-4d01-830f-5413aaf9b21a` are active. They use different
-      validation rules, so retain the version alongside each score.
+- [x] Completed the native Harbor v2 Codex run
+      `69eb9c6b-88c9-4e42-b250-1a197a15a794` on Modal: **38.1/100**.
+      Archived the result, task status, logs, and outputs privately.
+- [ ] Record Claude Code on Harbor v1
+      `ab8590b6-59e6-4d01-830f-5413aaf9b21a` when complete. V1 and v2 use
+      different validation rules; their scores are not directly comparable.
 
 ## Submission
 
