@@ -32,6 +32,13 @@
       `ab8590b6-59e6-4d01-830f-5413aaf9b21a` when complete. V1 and v2 use
       different validation rules; their scores are not directly comparable.
 
+- [x] Published the same Harbor v2 package in the new team,
+      `hackathon-decepticons-v2-ad723c5e16`. The `v2` tag points to revision 1
+      in that organization.
+- [ ] Record Claude Sonnet 4.6 on the new team's Harbor v2 dataset.
+      Run `ad135f29-26a6-4d02-8d22-750b79349c74` was in progress at the last
+      check. The completed Sol score above was recorded in the original team.
+
 ## Submission
 
 - [x] Confirmed the team-hosted dataset `evalscout-harbor/retail@v2` and
@@ -46,6 +53,7 @@
 - [x] Pushed and verified the clean private GitHub repository.
 - [ ] Author writes the personal paragraph at the top of the README.
 - [ ] Give judges access to the repository. It is currently private.
+- [ ] Record the demo video and add its link to the submission form.
 - [ ] A public Valkyrie browser permalink for this run has not been verified.
       The event instructions allow including the run ID.
 - [x] Durable Modal deployment available. The Harbor route also supports
