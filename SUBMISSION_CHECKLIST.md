@@ -34,9 +34,19 @@
 
 ## Submission
 
+- [x] Confirmed the team-hosted dataset `evalscout-harbor/retail@v2` and
+      the completed Sol run, `69eb9c6b-88c9-4e42-b250-1a197a15a794`.
+- [x] Included local frontier-model figures and separately identified the
+      hosted result in the README. The run ID can be used as the optional
+      Valkyrie artifact in the submission.
+- [ ] Save the project in the [hackathon portal](https://hackathon.vals.ai/)
+      using the [GitHub repository](https://github.com/Vbdata13/evalscout).
+      Include the dataset handle and completed run ID where the form permits.
+
 - [x] Pushed and verified the clean private GitHub repository.
 - [ ] Author writes the personal paragraph at the top of the README.
-- [ ] Author selects submission visibility and submits the link in the
-      hackathon portal. The initial GitHub repository is private.
+- [ ] Give judges access to the repository. It is currently private.
+- [ ] A public Valkyrie browser permalink for this run has not been verified.
+      The event instructions allow including the run ID.
 - [x] Durable Modal deployment available. The Harbor route also supports
       replay through the hosted dataset without the custom service.
