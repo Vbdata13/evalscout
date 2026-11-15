@@ -24,8 +24,8 @@ predictions when completed artifacts are available. Use **Refresh experiment
 results** to invalidate cached summaries.
 
 The server binds to loopback and reads experiment files without modifying
-them. The app contains no API client, credential prompts, public hosting,
-or model calls. Sierra rewards describe tasks overall. Criterion-specific
+them. The annotation and research views make no model calls. The Valkyrie
+view uses the locally authenticated CLI for read-only run status. Sierra rewards describe tasks overall. Criterion-specific
 state decisions use reviewed transcript evidence.
 
 ## Human annotation
@@ -52,3 +52,9 @@ grouping. Sidebar downloads export original comments and review decisions,
 approved taxonomy, and machine suggestions separately. Back up the entire
 private review directory to retain local work. Keep it outside any benchmark
 researcher input bundle.
+
+## Valkyrie runs
+
+Open [Valkyrie Runs](http://127.0.0.1:8501/?page=Valkyrie+Runs) to see task
+phases and scores for EvalScout in the connected Valkyrie organization. The
+local dashboard refreshes every ten seconds while this page is open.

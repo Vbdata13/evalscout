@@ -13,8 +13,9 @@ from data_loader import (
 )
 
 from review_page import review_page
+from valkyrie_page import valkyrie_page
 
-PAGES = ["Overview", "Trace Explorer", "Failure Modes", "Model Comparison", "Human Annotation"]
+PAGES = ["Overview", "Trace Explorer", "Failure Modes", "Model Comparison", "Human Annotation", "Valkyrie Runs"]
 st.set_page_config(page_title="EvalScout | Research dashboard", page_icon="🔎", layout="wide")
 st.html("""<style>
 [data-testid="stAppViewContainer"] { background: #f8fafc; }
@@ -31,6 +32,9 @@ requested_page = st.query_params.get("page", "Overview")
 page = st.sidebar.radio("Page", PAGES, index=PAGES.index(requested_page) if requested_page in PAGES else 0)
 if page == "Human Annotation":
     review_page()
+    st.stop()
+if page == "Valkyrie Runs":
+    valkyrie_page()
     st.stop()
 
 traces = corpus()

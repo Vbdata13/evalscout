@@ -65,6 +65,17 @@ and pins its dependency installation to Python 3.12.
 Use `valkyrie run results`, `valkyrie run errors`, and
 `valkyrie run outputs` to save the results locally.
 
+## Host the service on Modal
+
+Authenticate with Modal locally. In your Modal workspace, create the
+`evalscout-service-auth` secret with the same `EVALSCOUT_SERVICE_TOKEN`
+used for the Valkyrie benchmark registration. The private bundle must be
+at `private/valkyrie/` in the organizer workspace. From
+`evalscout-benchmark-service/`, run `uv run modal deploy modal_app.py::APP`.
+Register the returned HTTPS URL with Valkyrie using the existing service
+secret reference. This replaces the local tunnel. Grading runs in a
+separate Modal sandbox with networking disabled.
+
 ## Reproduce the dashboard
 
 Clone the pinned upstream τ-bench archive into `data_sources/tau-bench`.

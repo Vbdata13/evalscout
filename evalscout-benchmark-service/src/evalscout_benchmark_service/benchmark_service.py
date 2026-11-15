@@ -3,7 +3,6 @@ import hmac
 import json
 import os
 from pathlib import Path
-import stat
 
 from benchmark_service import BenchmarkService, ImageSource, Resources
 from benchmark_service.schemas import (
@@ -13,7 +12,7 @@ from benchmark_service.schemas import (
 from benchmark_service.v1_schemas import V1Task
 
 from .grader import parse_predictions, parse_submission, parse_traces, score
-from .isolation import evaluate_code
+from .isolation import evaluate_code, evaluate_on_modal
 
 TASK = "evalscout-retail"
 ROOT = Path(__file__).resolve().parents[3]
@@ -80,7 +79,8 @@ class EvalScoutBenchmark(BenchmarkService):
         status = "missing_evaluator"
         if files.get("evaluator.py"):
             try:
-                output = await evaluate_code(files["evaluator.py"], task["test"])
+                runner = evaluate_on_modal if os.environ.get("EVALSCOUT_RUNTIME") == "modal" else evaluate_code
+                output = await runner(files["evaluator.py"], task["test"])
                 predictions = parse_predictions(output, task["heldout"], categories)
                 status = "completed"
             except (ValueError, OSError, TimeoutError, TypeError):

@@ -56,3 +56,58 @@ async def evaluate_code(source, transcripts):
                     stderr=asyncio.subprocess.DEVNULL,
                 )
                 await cleanup.wait()
+
+
+async def evaluate_on_modal(source, transcripts):
+    """Use a fresh Modal Sandbox. No app mounts or secrets enter it."""
+    import modal
+    from modal.stream_type import StreamType
+
+    loader = """
+import os, resource, sys, tempfile
+size = int(sys.stdin.buffer.readline())
+if not 0 < size <= 100000:
+    raise SystemExit(2)
+source = sys.stdin.buffer.read(size)
+transcripts = sys.stdin.buffer.read()
+with tempfile.TemporaryDirectory() as directory:
+    path = directory + '/evaluator.py'
+    with open(path, 'wb') as f:
+        f.write(source)
+    with open(directory + '/input', 'w+b') as data:
+        data.write(transcripts)
+        data.seek(0)
+        os.dup2(data.fileno(), 0)
+        resource.setrlimit(resource.RLIMIT_CPU, (20, 20))
+        resource.setrlimit(resource.RLIMIT_FSIZE, (524288, 524288))
+        os.chdir(directory)
+        os.execve(sys.executable, [sys.executable, '-IB', path], {'LANG': 'C.UTF-8'})
+"""
+
+    async def run():
+        app = await modal.App.lookup.aio("evalscout-benchmark")
+        sandbox = await modal.Sandbox.create.aio(
+            app=app, image=modal.Image.debian_slim(python_version="3.12"),
+            block_network=True, timeout=90, cpu=1, memory=256,
+        )
+        try:
+            proc = await sandbox.exec.aio(
+                "python", "-IB", "-c", loader, text=False, timeout=35,
+                stderr=StreamType.DEVNULL,
+            )
+            proc.stdin.write(str(len(source)).encode() + b"\n" + source + transcripts)
+            proc.stdin.write_eof()
+            await proc.stdin.drain.aio()
+            output = bytearray()
+            async for chunk in proc.stdout:
+                output.extend(chunk)
+                if len(output) > 512_000:
+                    raise ValueError("Evaluator output limit exceeded")
+            code = await proc.wait.aio()
+            if code:
+                raise ValueError("Evaluator returned a nonzero exit status")
+            return bytes(output)
+        finally:
+            await sandbox.terminate.aio()
+
+    return await asyncio.wait_for(run(), 80)
