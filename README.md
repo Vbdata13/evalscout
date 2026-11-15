@@ -23,7 +23,28 @@ work on new traces.
 ![Local discovery coverage](benchmark/figures/discovery.png)
 ![Local unseen-test results](benchmark/figures/unseen.png)
 
-## Reproduce a Valkyrie run
+## Run the versioned Harbor dataset
+
+The hackathon path uses the hosted, versioned Harbor dataset
+`evalscout-harbor/retail@v2`. Valkyrie uses Modal for the agent and the separate
+verifier. Your account must be in the organization that owns the dataset.
+
+```sh
+valkyrie run start --agent codex-evalscout-py312 \
+  --dataset evalscout-harbor/retail@v2 --model openai/gpt-6.1-sol \
+  --provider modal -s OPENAI_API_KEY openai-api-key --concurrency 1 --connect
+```
+
+To publish a copy in your own organization, supply the private review bundle
+as described below and run `python3 scripts/materialize_harbor.py
+private/valkyrie/harbor-copy`. Then push that directory with
+`valkyrie dataset push evalscout-harbor/retail private/valkyrie/harbor-copy
+--tag v2`. The [Harbor task template](harbor/evalscout-retail) declares
+exactly three submission artifacts. Its verifier uses the same scoring
+code as the custom service. The private data stays in the verifier build
+context. Keep the materialized copy outside Git.
+
+## Alternate route: authenticated custom service
 
 The service was generated with the official
 [create-benchmark-service starter](https://github.com/vals-ai/create-benchmark-service).

@@ -28,7 +28,10 @@ def valkyrie(*arguments):
 @st.fragment(run_every="10s")
 def live_runs():
     try:
-        runs = valkyrie("list", "--benchmark-name", "evalscout", "--all", "--format", "json")["benchmarks"]
+        runs = [row for benchmark in ("evalscout", "evalscout-harbor")
+                for row in valkyrie("list", "--benchmark-name", benchmark, "--all",
+                                    "--format", "json")["benchmarks"]]
+        runs.sort(key=lambda row: row["started_at"], reverse=True)
     except ValueError as error:
         st.warning(str(error))
         return
@@ -36,7 +39,7 @@ def live_runs():
         st.info("There are no EvalScout runs in the connected organization.")
         return
 
-    rows = [{"Harness": r["agent_name"], "Model": r["model"], "Status": r["status"].replace("_", " "),
+    rows = [{"Benchmark": r["name"], "Harness": r["agent_name"], "Model": r["model"], "Status": r["status"].replace("_", " "),
              "Phase counts": ", ".join(f"{key}: {count}" for key, count in r["task_state_counts"].items()),
              "Score / 100": r["final_score"], "Run ID": r["id"]} for r in runs]
     st.dataframe(rows, hide_index=True, width="stretch")

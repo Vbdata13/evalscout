@@ -14,16 +14,21 @@
 - [x] Prepared the README author placeholder, provenance, scoring rubric,
       local model comparisons, examples, and figures.
 
-## Live run
+## Valkyrie runs
 
-- [ ] Complete and verify a real Valkyrie run with private evaluation.
-      Stock Codex run `3783d623-4e29-468c-996c-916bb900e162` failed during
-      harness installation. The selected CPython 3.15 did not have a usable
-      tiktoken wheel and the sandbox lacked Rust.
-      Python 3.12 retry `2292b89e-f0a0-4ae7-8e76-a9441aefb7fb` is in progress.
-      No final score is verified yet.
-- [ ] Save run result, error record, trace and outputs under the private
-      run directory. Publish only non-sensitive execution metadata.
+- [x] Completed the Modal-hosted custom-service run
+      `f21db0b6-dd9e-46a9-91a5-37a0fa331329`. It returned **0** with
+      `invalid_findings` because three evidence lists exceeded a validator
+      cap absent from the task instructions. This score is a protocol failure.
+- [x] Saved its result, errors, rollout, and available harness artifacts
+      in the organizer's private run directory.
+- [x] Relaxed the validator to accept any unique, in-range positions and
+      verified the Harbor verifier locally in a network-disabled Linux container.
+- [x] Published the official-format Harbor dataset, `evalscout-harbor/retail@v2`.
+- [ ] Record the native results when complete. Codex v2
+      `69eb9c6b-88c9-4e42-b250-1a197a15a794` and Claude v1
+      `ab8590b6-59e6-4d01-830f-5413aaf9b21a` are active. They use different
+      validation rules, so retain the version alongside each score.
 
 ## Submission
 
@@ -31,5 +36,5 @@
 - [ ] Author writes the personal paragraph at the top of the README.
 - [ ] Author selects submission visibility and submits the link in the
       hackathon portal. The initial GitHub repository is private.
-- [ ] Use a durable authenticated deployment if organizer replay will outlive
-      the local service and tunnel.
+- [x] Durable Modal deployment available. The Harbor route also supports
+      replay through the hosted dataset without the custom service.

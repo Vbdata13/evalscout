@@ -14,8 +14,8 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def valid_events(events, size, maximum=8):
-    return (isinstance(events, list) and len(events) <= maximum and
+def valid_events(events, size):
+    return (isinstance(events, list) and len(events) <= size and
             all(type(i) is int and 1 <= i <= size for i in events) and len(set(events)) == len(events))
 
 
