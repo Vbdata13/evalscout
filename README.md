@@ -17,16 +17,20 @@ Goal of this project is to evaluate if AI agents can evaluate other AI system en
 ![Local discovery coverage](benchmark/figures/discovery.png)
 ![Local unseen-test results](benchmark/figures/unseen.png)
 
-## Hosted Valkyrie result
+## Hosted Valkyrie results
 
 | Model | Dataset | Score | Valkyrie run ID |
 | --- | --- | ---: | --- |
 | GPT-6.1 Sol (Codex) | `evalscout-harbor/retail@v2` | 38.1/100 | `69eb9c6b-88c9-4e42-b250-1a197a15a794` |
+| Claude Sonnet 4.6 (Claude Code) | `evalscout-harbor/retail@v2` | 36.9/100 | `ad135f29-26a6-4d02-8d22-750b79349c74` |
 
 Replaying the submitted files with the same verifier reproduced the score.
 Sol matched 3 of 9 verified development issues. Its evaluator ran successfully
 and detected 0 of 5 verified unseen failures. The unseen count refers to labeled
-failures across the ten test traces. Global precision is unmeasured.
+failures across the ten test traces. Claude matched 4 of 9 development issues
+and detected 0 of 5 unseen failures. It reached the 30-minute agent limit.
+Its submitted evaluator ran successfully, and its recommendations file
+was missing. Global precision is unmeasured.
 
 In the hackathon organization, run `valkyrie tui` to browse hosted runs or
 `valkyrie run fetch 69eb9c6b-88c9-4e42-b250-1a197a15a794` for this result.

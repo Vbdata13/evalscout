@@ -35,9 +35,9 @@
 - [x] Published the same Harbor v2 package in the new team,
       `hackathon-decepticons-v2-ad723c5e16`. The `v2` tag points to revision 1
       in that organization.
-- [ ] Record Claude Sonnet 4.6 on the new team's Harbor v2 dataset.
-      Run `ad135f29-26a6-4d02-8d22-750b79349c74` was in progress at the last
-      check. The completed Sol score above was recorded in the original team.
+- [x] Recorded Claude Sonnet 4.6 on the new team's Harbor v2 dataset.
+      Run `ad135f29-26a6-4d02-8d22-750b79349c74` scored **36.9/100** after the agent
+      reached its time limit. The private verifier completed successfully.
 
 ## Submission
 
@@ -50,9 +50,8 @@
       using the [GitHub repository](https://github.com/Vbdata13/evalscout).
       Include the dataset handle and completed run ID where the form permits.
 
-- [x] Pushed and verified the clean private GitHub repository.
-- [ ] Author writes the personal paragraph at the top of the README.
-- [ ] Give judges access to the repository. It is currently private.
+- [x] Published the GitHub repository and verified unauthenticated access.
+- [x] Author added the personal paragraph at the top of the README.
 - [ ] Record the demo video and add its link to the submission form.
 - [ ] A public Valkyrie browser permalink for this run has not been verified.
       The event instructions allow including the run ID.
