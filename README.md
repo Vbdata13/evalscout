@@ -1,6 +1,6 @@
 # EvalScout
 
-> ** Goal of this project is to evaluate if AI agents can evaluate other AI system end to end with a focus on practical application of AI systems. To narrow the scope, I picked a customer support agent and built out an Eval to determine if an AI agent can E2E Eval this system. I broke down improvement into 2 steps, 1: Finding errors or current issues, failure modes, severity of issues, group them into common themes 2: Create Evals that can be used to automatically identify these issues in similar traces
+Goal of this project is to evaluate if AI agents can evaluate other AI system end to end with a focus on practical application of AI systems. To narrow the scope, I picked a customer support agent and built out an Eval to determine if an AI agent can E2E Eval this system. I broke down improvement into 2 steps, 1: Finding errors or current issues, failure modes, severity of issues, group them into common themes 2: Create Evals that can be used to automatically identify these issues in similar traces
 
 ## Demo
 
